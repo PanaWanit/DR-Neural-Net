@@ -7,7 +7,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-from sklearn.metrics import accuracy_score, f1_score
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
 from sklearn.model_selection import StratifiedShuffleSplit
 from torch import nn
 from torch.utils.data import DataLoader, Subset
@@ -302,6 +302,18 @@ def run_experiment(
         f"[{name}] Test loss: {test_loss:.4f} | "
         f"accuracy: {accuracy:.4f} | macro F1: {macro_f1:.4f}"
     )
+
+    report = classification_report(
+        y_true,
+        y_pred,
+        target_names=class_names,
+        digits=4,
+        zero_division=0,
+    )
+    print(f"\n[{name}] Classification report:\n{report}")
+
+    cm = confusion_matrix(y_true, y_pred)
+    print(f"[{name}] Confusion matrix:\n{cm}\n")
 
     return {
         "test_loss": test_loss,

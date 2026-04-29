@@ -1,0 +1,75 @@
+Class ratios (full dataset):
+  Mild: 527 (0.148)
+  Moderate: 395 (0.111)
+  No_DR: 968 (0.272)
+  Proliferate_DR: 1089 (0.306)
+  Severe: 575 (0.162)
+Train split ratios:
+  Mild: 369 (0.148)
+  Moderate: 277 (0.111)
+  No_DR: 677 (0.272)
+  Proliferate_DR: 762 (0.306)
+  Severe: 402 (0.162)
+Val split ratios:
+  Mild: 105 (0.148)
+  Moderate: 79 (0.111)
+  No_DR: 194 (0.273)
+  Proliferate_DR: 218 (0.307)
+  Severe: 115 (0.162)
+Test split ratios:
+  Mild: 53 (0.149)
+  Moderate: 39 (0.110)
+  No_DR: 97 (0.272)
+  Proliferate_DR: 109 (0.306)
+  Severe: 58 (0.163)
+
+
+[baseline] Test loss: 0.0534 | accuracy: 0.9888 | macro F1: 0.9891
+
+[baseline] Classification report:
+                precision    recall  f1-score   support
+
+          Mild     0.9815    1.0000    0.9907        53
+      Moderate     1.0000    0.9744    0.9870        39
+         No_DR     0.9898    1.0000    0.9949        97
+Proliferate_DR     0.9907    0.9725    0.9815       109
+        Severe     0.9831    1.0000    0.9915        58
+
+      accuracy                         0.9888       356
+     macro avg     0.9890    0.9894    0.9891       356
+  weighted avg     0.9888    0.9888    0.9887       356
+
+[baseline] Confusion matrix:
+[[ 53   0   0   0   0]
+ [  0  38   0   1   0]
+ [  0   0  97   0   0]
+ [  1   0   1 106   1]
+ [  0   0   0   0  58]]
+
+
+[augmented] Test loss: 0.0530 | accuracy: 0.9888 | macro F1: 0.9891
+
+[augmented] Classification report:
+                precision    recall  f1-score   support
+
+          Mild     0.9815    1.0000    0.9907        53
+      Moderate     1.0000    0.9744    0.9870        39
+         No_DR     0.9898    1.0000    0.9949        97
+Proliferate_DR     0.9907    0.9725    0.9815       109
+        Severe     0.9831    1.0000    0.9915        58
+
+      accuracy                         0.9888       356
+     macro avg     0.9890    0.9894    0.9891       356
+  weighted avg     0.9888    0.9888    0.9887       356
+
+[augmented] Confusion matrix:
+[[ 53   0   0   0   0]
+ [  0  38   0   1   0]
+ [  0   0  97   0   0]
+ [  1   0   1 106   1]
+ [  0   0   0   0  58]]
+
+
+Summary
+Baseline - accuracy: 0.9888, macro F1: 0.9891
+Augmented - accuracy: 0.9888, macro F1: 0.9891
