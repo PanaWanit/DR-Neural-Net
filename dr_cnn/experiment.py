@@ -58,7 +58,7 @@ def run_experiment(
 
     model = SimpleCNN(num_classes=len(class_names)).to(device)
     criterion = nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr)
 
     history = {"train": [], "val": []}
     for epoch in range(1, args.epochs + 1):
