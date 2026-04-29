@@ -5,10 +5,9 @@ import { TitleSequence } from "./compositions/TitleSequence";
 import { Introduction } from "./compositions/Introduction";
 import { CNNConcepts } from "./compositions/CNNConcepts";
 import { Architecture } from "./compositions/Architecture";
+import { CodeWalkthrough } from "./compositions/CodeWalkthrough";
 
-// 140 seconds total at 30fps = 4200 frames
 const FPS = 30;
-const DURATION_IN_FRAMES = 140 * FPS;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -16,7 +15,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="DRVideo"
         component={DRVideo}
-        durationInFrames={DURATION_IN_FRAMES}
+        durationInFrames={970} // Sum of all scenes (60+180+180+150+400)
         fps={FPS}
         width={1920}
         height={1080}
@@ -25,7 +24,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="TitleSequence"
         component={TitleSequence}
-        durationInFrames={10 * FPS}
+        durationInFrames={60}
         fps={FPS}
         width={1920}
         height={1080}
@@ -33,7 +32,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Introduction"
         component={Introduction}
-        durationInFrames={30 * FPS}
+        durationInFrames={180}
         fps={FPS}
         width={1920}
         height={1080}
@@ -41,7 +40,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="CNNConcepts"
         component={CNNConcepts}
-        durationInFrames={30 * FPS}
+        durationInFrames={180}
         fps={FPS}
         width={1920}
         height={1080}
@@ -49,7 +48,15 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Architecture"
         component={Architecture}
-        durationInFrames={70 * FPS} // Including mock code walkthrough and outro
+        durationInFrames={150} 
+        fps={FPS}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="CodeWalkthrough"
+        component={CodeWalkthrough}
+        durationInFrames={400} 
         fps={FPS}
         width={1920}
         height={1080}

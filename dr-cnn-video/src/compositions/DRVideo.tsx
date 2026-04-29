@@ -4,18 +4,20 @@ import { TitleSequence } from "./TitleSequence";
 import { Introduction } from "./Introduction";
 import { CNNConcepts } from "./CNNConcepts";
 import { Architecture } from "./Architecture";
+import { CodeWalkthrough } from "./CodeWalkthrough";
 
 export const DRVideo: React.FC = () => {
   const FPS = 30;
   
   // Define sequence durations in frames
-  const titleDuration = 10 * FPS;
-  const introDuration = 30 * FPS;
-  const cnnConceptsDuration = 30 * FPS;
-  const archDuration = 70 * FPS;
+  const titleDuration = 60; // 2 seconds
+  const introDuration = 180; // 6 seconds
+  const cnnConceptsDuration = 180; // 6 seconds
+  const archDuration = 150; // 5 seconds
+  const codeDuration = 400; // ~13 seconds
 
   return (
-    <AbsoluteFill style={{ backgroundColor: "var(--bg-dark)" }}>
+    <AbsoluteFill style={{ backgroundColor: "var(--bg-primary)" }}>
       <Sequence from={0} durationInFrames={titleDuration}>
         <TitleSequence />
       </Sequence>
@@ -30,6 +32,10 @@ export const DRVideo: React.FC = () => {
       
       <Sequence from={titleDuration + introDuration + cnnConceptsDuration} durationInFrames={archDuration}>
         <Architecture />
+      </Sequence>
+
+      <Sequence from={titleDuration + introDuration + cnnConceptsDuration + archDuration} durationInFrames={codeDuration}>
+        <CodeWalkthrough />
       </Sequence>
     </AbsoluteFill>
   );
